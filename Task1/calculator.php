@@ -1,37 +1,33 @@
 <?php
-// $maxNum = 25;
-// $minNum = 12;
-// $sum = $_POST['sum'];
 error_reporting(0);
 if ($_POST['sum']) {
     $firstNumber = $_POST['first_number'];
     $secondNumber = $_POST['second_number'];
-    $result1 = $firstNumber + $secondNumber ;
+    $result1 = $firstNumber + $secondNumber;
     $output = "<div class='alert alert-success'> Result of Sum $firstNumber and $secondNumber is : $result1 </div>";
-
 }
 if ($_POST['sub']) {
     $firstNumber = $_POST['first_number'];
     $secondNumber = $_POST['second_number'];
-    $result2 = $firstNumber - $secondNumber ;
+    $result2 = $firstNumber - $secondNumber;
     $output2 = "<div class='alert alert-success'> Result of Substract $firstNumber and $secondNumber is : $result2 </div>";
 }
 if ($_POST['multiply']) {
     $firstNumber = $_POST['first_number'];
     $secondNumber = $_POST['second_number'];
-    $result3 = $firstNumber * $secondNumber ;
-     $output3 = "<div class='alert alert-success'> Result of Multiply $firstNumber and $secondNumber is : $result3 </div>";
+    $result3 = $firstNumber * $secondNumber;
+    $output3 = "<div class='alert alert-success'> Result of Multiply $firstNumber and $secondNumber is : $result3 </div>";
 }
 if ($_POST['divid']) {
     $firstNumber = $_POST['first_number'];
     $secondNumber = $_POST['second_number'];
-    $result4 = $firstNumber / $secondNumber ;
+    $result4 = $firstNumber / $secondNumber;
     $output4 = "<div class='alert alert-success'> Result of Dividing $firstNumber and $secondNumber is : $result4 </div>";
 }
 if ($_POST['modlus']) {
     $firstNumber = $_POST['first_number'];
     $secondNumber = $_POST['second_number'];
-    $result5 = $firstNumber % $secondNumber ;
+    $result5 = $firstNumber % $secondNumber;
     $output5 = "<div class='alert alert-success'> Result of Moduls $firstNumber and $secondNumber is : $result5 </div>";
 }
 
@@ -55,7 +51,7 @@ if ($_POST['modlus']) {
         <div class="row mt-5 align-content-center">
             <div class="card bg-light text-dark col-12 p-lg-5 offset-12 shadow">
                 <div class="card-body text-center text-dark p-20">
-                    <h4>Simple Calculator  </h4>
+                    <h4>Simple Calculator </h4>
                 </div>
 
                 <form action="" method="post">
