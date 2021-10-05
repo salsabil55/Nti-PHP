@@ -33,7 +33,7 @@ function calcGrade($num1, $num2, $num3, $num4, $num5)
     }
     else{
         $grade = "F";
-        $output = "<div class='alert alert-danger'> Grade is $grade</div>";
+        $output = "<div class='alert alert-danger'> Grade is out of Range</div>";
         return $output;
     }
 }
