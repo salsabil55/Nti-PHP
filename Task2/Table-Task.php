@@ -61,24 +61,6 @@ $users = [
 
 ?>
 
-<!-- id -->
-<!-- <?php
-                            foreach($users as $index => $objects){
-                               echo "<td>$objects->id</td><br>";
-                               echo "<td>$objects->name</td><br>";
-                               foreach($objects->gender as $genderInIndex => $gender){
-                                  echo "<td>$gender</td><br>";
-                               }
-                               foreach($objects->hobbies as $key => $attr){
-                                echo "<td>$attr</td><br>";
-                             }
-                               foreach($objects->activities as $activitiesInIndex => $activities){
-                                echo "<td>$activities</td><br>";
-                             }
-
-                            }                            
-                        ?> -->
-
 <!doctype html>
 <html lang="en">
 
