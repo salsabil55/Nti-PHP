@@ -105,8 +105,8 @@ $users = [
                         <th scope="col">Id</th>
                         <th scope="col">name</th>
                         <th scope="col">gender</th>
-                        <th scope="col" colspan="8">hobbies</th>
-                        <th scope="col">Activites</th>
+                        <th scope="col" colspan="4">hobbies</th>
+                        <th scope="col" colspan="4">Activites</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -124,8 +124,8 @@ $users = [
                                   }
                                   
                                }
-                               foreach($objects->hobbies as $key => $attr){
-                                echo "<td>$attr,</td>";
+                               foreach($objects->hobbies as $hobbiesIndex => $hobbies){
+                                echo "<td>$hobbies,</td>";
                              }
                                foreach($objects->activities as $activitiesInIndex => $activities){
                                 echo "<td colspan='4'>$activities</td>";
