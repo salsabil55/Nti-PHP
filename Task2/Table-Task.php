@@ -13,7 +13,7 @@ $users = [
             "school" => 'drawing',
             'home' => 'painting'
         ]
-        
+
     ],
     (object)[
         'id' => 2,
@@ -44,22 +44,40 @@ $users = [
         ]
     ],
     (object)[
-            'id' => 3,
-            'name' => 'mena',
-            "gender" => (object)[
-                'gender' => 'f'
-            ],
-            'hobbies' => [
-                'running',
-            ],
-            'activities' => [
-                "school" => 'painting',
-                'home' => 'drawing'
-            ]
+        'id' => 3,
+        'name' => 'mena',
+        "gender" => (object)[
+            'gender' => 'f'
+        ],
+        'hobbies' => [
+            'running',
+        ],
+        'activities' => [
+            "school" => 'painting',
+            'home' => 'drawing'
         ]
-];
+    ]
 
+];
 ?>
+
+<!-- id -->
+
+<!-- <?php
+        foreach ($users as $index => $objects) {
+            echo "<td>$objects->id</td><br>";
+            echo "<td>$objects->name</td><br>";
+            foreach ($objects->gender as $genderInIndex => $gender) {
+                echo "<td>$gender</td><br>";
+            }
+            foreach ($objects->hobbies as $key => $attr) {
+                echo "<td>$attr</td><br>";
+            }
+            foreach ($objects->activities as $activitiesInIndex => $activities) {
+                echo "<td>$activities</td><br>";
+            }
+        }
+        ?> -->
 
 <!doctype html>
 <html lang="en">
@@ -77,48 +95,53 @@ $users = [
 <body>
     <div class="container">
         <div class="row mt-5 align-content-center">
-        <div class="card bg-light text-dark col-12 p-lg-5 offset-12 shadow">
-            <div class="card-body text-center text-dark p-20">
-                <h4>Dynamic Table " Columns & Rows "</h4>
-            </div>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">name</th>
-                        <th scope="col">gender</th>
-                        <th scope="col" colspan="4">hobbies</th>
-                        <th scope="col" colspan="4">Activites</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                            foreach($users as $index => $objects){
-                                echo "<tr>";
-                               echo "<th scope='row'>$objects->id</th>";
-                               echo "<td>$objects->name</td>";
-                               foreach($objects->gender as $genderInIndex => $gender){
-                                  
-                                  if($gender== 'm'){
-                                    echo "<td>male</td>";
-                                  }else{
-                                    echo "<td>female</td>";
-                                  }
-                                  
-                               }
-                               foreach($objects->hobbies as $hobbiesIndex => $hobbies){
-                                echo "<td>$hobbies,</td>";
-                             }
-                               foreach($objects->activities as $activitiesInIndex => $activities){
-                                echo "<td colspan='4'>$activities</td>";
-                             }
-                             echo "</tr>";
-                            }                            
+            <div class="card bg-light text-dark col-12 p-lg-5 offset-12 shadow">
+                <div class="card-body text-center text-dark p-20">
+                    <h4>Dynamic Table " Columns & Rows "</h4>
+                </div>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <?php 
+                        foreach ($users[0] as $key => $val) {
+                           echo "<th>$key</th>";}
                         ?>
-                </tbody>
-            </table>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($users as $index => $objects) {?>
+                            <tr>
+                             <?php  
+                              foreach ($objects as $key => $value) {?>
+                                <td>
+                                <?php
+                                    if(gettype($value)!='array' AND gettype($value)!='object'){
+                                        echo $value;
+                                    }
+                                    else{
+                                        foreach ($value as $k => $v) {
+                                            if($key == 'gender'){
+                                                if($v == 'm'){
+                                                    $v = 'male';
+                                                }
+                                                else{
+                                                    $v='female';
+                                                }
+                                            }
+                                            echo $v . ',';
+                                        }
+                                    }
+                                ?>
 
-        </div>
+                                </td>
+                                <?php } ?>
+                            </tr>
+                            <?php } ?>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
     <!-- Optional JavaScript -->
