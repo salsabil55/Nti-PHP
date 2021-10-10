@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+body {
+    background: #f2f2f2;
+}
+.market-logo {
+    margin-top: 25px;
+}
+.market-logo img {
+    width: 300px;
+}
+.market-form {
+    border: 1px solid #ddc0b2;
+    width: 50%;
+    margin: auto;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    box-shadow: 0 3px 10px #ccc;
+    margin-top: 20px;
+
+}
+form {
+    margin: 40px;
+    margin-bottom: 20px;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: #022850;
+    font-family: cursive;
+}
+button.btn.btn-dark.rounded.form-control {
+    background: #002949;
+    margin-top: 30px;
+}
+.text-dark {
+    background: #d46025!important;
+    font-family: cursive;
+    font-size: 25px;
+    color: white !important;
+    border-top-left-radius: 40px;
+    padding: 15px;
+    border-top-right-radius: 40px;
+}

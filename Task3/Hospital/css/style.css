@@ -1,0 +1,105 @@
+*{
+    outline: none;
+}
+.phone-content{
+    background: url('../img/hospital.jpg');width: 100%;
+    background-position: center center;
+    height: 100vh;
+}
+.phone-content h3{
+    margin: 50px;font-size: 130px;
+    color: #22333e;
+    font-family: fantasy;
+    margin-bottom: 100px;
+}
+.alert-danger {
+    color: #ffffff;
+    background-color: #cd507a;
+    border-color: #f5c6cb;
+}
+.phone{
+    margin: 50px;
+    width: 40%;
+}
+.phone label {
+    font-size: 17px;
+    color: #1b977f;
+    font-weight: 400;
+    margin-bottom: 25px;
+    font-family: revert;
+}
+.phone input{
+    background: #cfd9d7;
+}
+button.btn.btn-blue.rounded.form-control {
+    background: #25b9a1;
+    color: white;
+    font-size: 15px;
+    width: 100px;
+    float: right;
+}
+.survey-content{
+    background: url('../img/hospital.jpg');width: 100%;
+    background-position: left;
+    height: 100vh;
+}
+.survey-content h3 {
+    margin: 50px;
+    font-size: 60px;
+    color: #292e42;
+    font-weight: 700;
+}
+.survey-table {
+    width: 59%;
+    margin: 95px;
+    margin-top: 0;
+}
+.review {
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+button.result-btn {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #25b9a1;
+    color: white;
+    padding: 7px;
+    border-radius: 4px;
+    margin: auto;
+}
+#my_form .alert-danger {
+    color: #721c24;
+    background-color: #ffffff;
+    border-color: rgb(114 28 36 / 60%);
+    font-size: 14px;
+    padding: 5px 20px;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    font-weight: 400;
+    color: #233240;
+
+}
+.table thead th {
+    color: #e91e63;
+    font-weight: bold;
+}
+.table td {
+    text-align: center;
+}
+
+th.n {
+    text-align: center;
+}
+tr.total {
+    background: #25323a;
+    border-radius: 5px;
+}
+tr.total td, tr.total th{
+    color: white;
+    font-weight: bold;
+}
