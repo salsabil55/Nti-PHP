@@ -25,13 +25,22 @@ include_once('middleware/auth.php');
                         <tr>
                             <th scope="row">Are you satisfied with the level of cleanliness?</th>
                             <td>
-                                <?= $_SESSION['review']['ques1']; ?>
+                                <?php
+                                if(isset($_SESSION['review']['ques1'])){
+                                    echo $_SESSION['review']['ques1']; 
+                                }
+                                
+                                ?>
                             </td>
                         </tr>
                         <tr>
                             <th scope="row">Are you satisfied with the service prices?</th>
                             <td>
-                                <?= $_SESSION['review']['ques2']; ?>
+                                <?php
+                                 if(isset($_SESSION['review']['ques2'])){
+                                    echo $_SESSION['review']['ques2']; 
+                                } 
+                                ?>
 
                             </td>
 
@@ -39,7 +48,11 @@ include_once('middleware/auth.php');
                         <tr>
                             <th scope="row">Are you satisfied with the nursing service</th>
                             <td>
-                                <?= $_SESSION['review']['ques3']; ?>
+                                <?php
+                                  if(isset($_SESSION['review']['ques3'])){
+                                    echo $_SESSION['review']['ques3']; 
+                                } 
+                                 ?>
 
                             </td>
 
@@ -47,7 +60,11 @@ include_once('middleware/auth.php');
                         <tr>
                             <th scope="row">Are you satisfied with the level of the doctor?</th>
                             <td>
-                                <?= $_SESSION['review']['ques4']; ?>
+                            <?php
+                                  if(isset($_SESSION['review']['ques4'])){
+                                    echo $_SESSION['review']['ques4']; 
+                                } 
+                                 ?>
 
 
                             </td>
@@ -56,7 +73,11 @@ include_once('middleware/auth.php');
                         <tr>
                             <th scope="row">Are you satisfied with the calmness in the hospital?</th>
                             <td>
-                                <?= $_SESSION['review']['ques5']; ?>
+                            <?php
+                                  if(isset($_SESSION['review']['ques5'])){
+                                    echo $_SESSION['review']['ques5']; 
+                                } 
+                                 ?>
 
                             </td>
 
@@ -64,8 +85,14 @@ include_once('middleware/auth.php');
                         <tr class="total">
                             <th scope="row">Total Review</th>
                             <td class="bold">
-                                <?php foreach ($_SESSION['totalReview'] as $attr => $review)
-                                    echo $review;
+                                <?php 
+                                if(isset($_SESSION['totalReview'])){
+                                    foreach ($_SESSION['totalReview'] as $attr => $review){
+                                        echo $review;
+    
+                                    }
+                                }
+                              
                                 ?>
 
                             </td>
@@ -73,8 +100,13 @@ include_once('middleware/auth.php');
                     </tbody>
                 </table>
                 <div class="review">
-                    <?php foreach ($_SESSION['msg'] as $key => $value)
+                    <?php 
+                    if(isset($_SESSION['msg'])){
+                        foreach ($_SESSION['msg'] as $key => $value){
                         echo $value;
+                        }
+                    }
+                    
                     ?>
                 </div>
             </div>
