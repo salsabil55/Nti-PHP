@@ -54,7 +54,29 @@
                     </div>
 
                     <!-- reciept-form -->
-
+                    <div class="col-12">
+                        <form>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Quantities</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><input type="text" name="prod-name" class="form-control" placeholder="Enter Product Name"></th>
+                                    <td><input type="number" name="price" class="form-control"></td>
+                                    <td><input type="number" name="quantity" class="form-control"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="form-group">
+                                <button class="btn btn-dark rounded form-control"> Reciept </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
