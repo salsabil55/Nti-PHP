@@ -1,5 +1,5 @@
-<?php
-$title = 'Home';
+<?php 
+$title='Home';
 include_once('layouts/header.php');
 include_once('middleware/auth.php');
 include_once('layouts/nav.php') ?>

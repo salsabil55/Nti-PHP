@@ -18,38 +18,29 @@ if ($_POST) {
     if (empty($_POST['ques1'])) {
         $errors['ques1'] = "<div class='alert alert-danger'> * Please Answer First Questions </div>";
     } else {
-        $review['ques1'] = $_POST['ques1'];
         $ques1 = $_POST["ques1"];
-        $loggedInUser = $review;
     }
     if (empty($_POST['ques2'])) {
         $errors['ques2'] = "<div class='alert alert-danger'> * Please Answer Second Questions </div>";
     } else {
-        $review['ques2'] = $_POST['ques2'];
         $ques2 = $_POST["ques2"];
-        $loggedInUser = $review;
     }
     if (empty($_POST['ques3'])) {
         $errors['ques3'] = "<div class='alert alert-danger'> * Please Answer Third Questions </div>";
     } else {
-        $review['ques3'] = $_POST['ques3'];
         $ques3 = $_POST["ques3"];
-        $loggedInUser = $review;
     }
     if (empty($_POST['ques4'])) {
         $errors['ques4'] = "<div class='alert alert-danger'> * Please Answer Fouth Questions </div>";
     } else {
-        $review['ques4'] = $_POST['ques4'];
         $ques4 = $_POST["ques4"];
-        $loggedInUser = $review;
     }
     if (empty($_POST['ques5'])) {
         $errors['ques5'] = "<div class='alert alert-danger'> * Please Answer Fifth Questions </div>";
     } else {
-        $review['ques5'] = $_POST['ques5'];
         $ques5 = $_POST["ques5"];
-        $loggedInUser = $review;
     }
+    $loggedInUser = $review;
 
 
     // save review answer
@@ -117,35 +108,23 @@ if ($_POST) {
     // return total review
     if ($count == 0  && $count < 14) {
         $msg['call'] = "<div class='alert alert-danger'>We will call you later on this phone :   " . $_SESSION['user']['phone'] . "</div>";
-        $loggedInCount = $msg;
-        $loggedInUser = $review;
         $totalReview['bad'] = 'Bad';
-        $loggedInReview = $totalReview;
     } elseif ($count >= 14 && $count < 25) {
         $msg['call'] = "<div class='alert alert-danger'>We will call you later on this phone :   " . $_SESSION['user']['phone'] . "</div>";
-        $loggedInCount = $msg;
-        $loggedInUser = $review;
         $totalReview['good'] = 'Good';
-        $loggedInReview = $totalReview;
     } elseif ($count >= 25 && $count < 50) {
         $msg['thanks'] = "<div class='alert alert-success'>Thanks For Your Time </div>";
-        $loggedInCount = $msg;
-        $loggedInUser = $review;
         $totalReview['very'] = 'Very Good';
-        $loggedInReview = $totalReview;
     } elseif ($count >= 50) {
         $msg['thanks'] = "<div class='alert alert-success'>Thanks For Your Time </div>";
-        $loggedInCount = $msg;
         $totalReview['exce'] = 'Excellent';
-        $loggedInReview = $totalReview;
     } else {
         $msg['call'] = "<div class='alert alert-danger'>We will call you later on this phone :   " . $_SESSION['user']['phone'] . "</div>";
-        $loggedInCount = $msg;
-        $loggedInUser = $review;
         $totalReview['bad'] = 'Bad';
-        $loggedInReview = $totalReview;
     }
-
+    $loggedInCount = $msg;
+    $loggedInUser = $review;
+    $loggedInReview = $totalReview;
 
 
 

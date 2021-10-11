@@ -1,0 +1,32 @@
+.bank img{
+        width: 450px;
+        margin-top: 45px;
+}
+.form h3 {
+    text-align: center;
+    font-size: 90px;
+    color: #6737c1;
+    font-family: fantasy;
+}
+
+.form {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    float: right;
+}
+.form-control {
+    background-color: #d7d4ff;
+}
+.btn-dark {
+    color: #fff;
+    background-color: #542dae;
+    border-color: #542dae;
+    margin-top: 25px;
+}
+.result {
+    text-align: center;
+}
+h6 {
+    font-size: 13px;
+}

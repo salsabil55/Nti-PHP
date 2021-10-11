@@ -11,13 +11,13 @@ if ($_POST) {
     if (empty($_POST['name'])) {
         $errors['name'] = "<div class='alert alert-danger'>Name is required</div>";
     }
-    if (empty($_POST['gender'])) {
+    if(empty($_POST['gender'])){
         $errors['gender'] = "<div class='alert alert-danger'>gender is required</div>";
     }
     if (empty($errors)) {
 
-        // check if the request has photo
-        if ($_FILES['image']['error'] == 0) {
+           // check if the request has photo
+           if ($_FILES['image']['error'] == 0) {
             // validate on size
             $maxUploadedFile = 10 ** 6; //1mega
             if ($_FILES['image']['size'] > $maxUploadedFile) {
@@ -46,6 +46,7 @@ if ($_POST) {
             $_SESSION['user']['gender'] = $_POST['gender'];
             $success = "<div class='alert alert-success'>Data Updated Successfully</div>";
         }
+        
     }
 }
 include_once('layouts/nav.php') ?>
@@ -84,14 +85,14 @@ include_once('layouts/nav.php') ?>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail">Name</label>
-                    <input type="text" name="name" value="<?= $_SESSION['user']['name']; ?>" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+                    <input type="text" name="name" value="<?= $_SESSION['user']['name'];?>" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
                 </div>
                 <?php if (isset($errors['name'])) {
                     echo $errors['name'];
                 } ?>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" value="<?= $_SESSION['user']['email']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" name="email" value="<?= $_SESSION['user']['email'];?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <?php if (isset($errors['email'])) {
                     echo $errors['email'];
@@ -99,7 +100,7 @@ include_once('layouts/nav.php') ?>
 
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" value="<?= $_SESSION['user']['password']; ?>" class="form-control" id="exampleInputPassword1">
+                    <input type="password" name="password" value="<?= $_SESSION['user']['password'];?>" class="form-control" id="exampleInputPassword1">
                 </div>
                 <?php if (isset($errors['password'])) {
                     echo $errors['password'];
@@ -126,10 +127,9 @@ include_once('layouts/nav.php') ?>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success rounded form-control"> Change </button>
-                </div>
-            </form>
+                </div>            </form>
         </div>
     </div>
 </div>
 
-<?php include_once('layouts/footer.php') ?>
+<?php include_once('layouts/footer.php')?>
