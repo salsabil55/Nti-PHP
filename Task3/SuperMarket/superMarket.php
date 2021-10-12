@@ -2,9 +2,6 @@
 $i = 0;
 $errors = [];
 $products = [];
-$productError = [];
-$quantityError = [];
-$priceError = [];
 $prices = [];
 $quantity = [];
 $subtotal = [];
