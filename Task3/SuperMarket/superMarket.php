@@ -6,8 +6,8 @@ $prices = [];
 $quantity = [];
 $subtotal = [];
 $x = 0;
-if (isset($_POST['info'])) {
 
+if (isset($_POST['info'])) {
 
     if (empty($_POST['name'])) {
         $errors['name'] = "<div class='alert alert-danger'>* Name is required</div>";
@@ -26,7 +26,6 @@ if (isset($_POST['info'])) {
 // handle reciept
 if (isset($_POST['reciept'])) {
 
-
     $count = $_POST['number'];
     $city = $_POST['city'];
     for ($i = 0; $i < $count; $i++) {
@@ -39,13 +38,13 @@ if (isset($_POST['reciept'])) {
         if (isset($_POST["quantity-" . $i])) {
             $quantity[$i] = $_POST["quantity-" . $i];
         }
-        if (isset($_POST["price-" . $i]) && isset($_POST["quantity-" . $i])) {
+        if (isset($_POST["price-" . $i]) && isset($_POST["quantity-" . $i]) && is_numeric($_POST["quantity-" . $i]) && is_numeric($_POST["quantity-" . $i])) {
             $subtotal[$i] = $price[$i] * $quantity[$i];
-        } else {
-            $errormsg = "<div class='alert alert-danger'>Please Check Your input values</div>";
+        } 
+        else {
+            $errormsg = "<div class='alert alert-danger'>* Please Fill All input Reciept Correctly</div>";
         }
     }
-
     if ($city == 'Cairo') {
         $delivery = 0;
     } elseif ($city == 'Giza') {
@@ -54,6 +53,9 @@ if (isset($_POST['reciept'])) {
         $delivery = 50;
     } elseif ($city == 'Other') {
         $delivery = 100;
+    }
+    else{
+        $errors['city'] = "<div class='alert alert-danger'> * Please Choose Your City </div>";
     }
 
     function netValue($total, $delivery)
@@ -127,7 +129,8 @@ if (isset($_POST['reciept'])) {
         $discounts = discount(array_sum($subtotal));
         $totalAfterDisc = totalAfterDisc(array_sum($subtotal));
         $netValue = netValue($totalAfterDisc, $delivery);
-    } else {
+    } 
+    else {
         $errormsg = "<div class='alert alert-danger'>Please Check Your input values</div>";
     }
 }
@@ -180,7 +183,7 @@ if (isset($_POST['reciept'])) {
                                 <label for="">City</label>
                                 <select name="city" class="form-control">
                                     <option value="">-- Select Your City</option>
-                                    <option value="cairo" <?php if (isset($city) && $city == "Cairo") echo "selected"; ?>>Cairo</option>
+                                    <option value="Cairo" <?php if (isset($city) && $city == "Cairo") echo "selected"; ?>>Cairo</option>
                                     <option value="Giza" <?php if (isset($city) && $city == "Giza") echo "selected"; ?>>Giza</option>
                                     <option value="Alex" <?php if (isset($city) && $city == "Alex") echo "selected"; ?>>Alex</option>
                                     <option value="Other" <?php if (isset($city) && $city == "Other") echo "selected"; ?>>Other</option>
@@ -259,22 +262,27 @@ if (isset($_POST['reciept'])) {
                                         for ($i = 0; $i < $count; $i++) {
                                             if (isset($_POST["prod-name-" . $i]) && isset($_POST["price-" . $i]) && isset($_POST["quantity-" . $i])) {
                                                 $products[$i] = $_POST["prod-name-" . $i];
-                                                echo "<tr><td class='products'>$products[$i]</td><td class='products'>$price[$i]</td>
+                                                if(isset($products[$i]) && isset($quantity[$i]) && isset($subtotal[$i])){
+                                                echo "<tr><td class='products'>$products[$i]</td><td class='products'>$products[$i]</td>
                                             <td class='products'>$quantity[$i]</td><td>$subtotal[$i]</td></tr>";
                                             }
                                         }
                                     }
+                                }
                                     ?>
 
                                 </tbody>
                             </table>
 
                             <br>
+                            <div class="input-error">
                             <?php
-                            if (isset($_POST['errormsg'])) {
-                                echo $_POST['errormsg'];
+                            if (isset($errormsg)) {
+                                echo $errormsg;
                             }
                             ?>
+                            </div>
+                            
 
                             <!-- bill info -->
 
