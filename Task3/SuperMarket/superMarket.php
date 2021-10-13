@@ -40,8 +40,7 @@ if (isset($_POST['reciept'])) {
         }
         if (isset($_POST["price-" . $i]) && isset($_POST["quantity-" . $i]) && is_numeric($_POST["quantity-" . $i]) && is_numeric($_POST["quantity-" . $i])) {
             $subtotal[$i] = $price[$i] * $quantity[$i];
-        } 
-        else {
+        } else {
             $errormsg = "<div class='alert alert-danger'>* Please Fill All input Reciept Correctly</div>";
         }
     }
@@ -53,8 +52,7 @@ if (isset($_POST['reciept'])) {
         $delivery = 50;
     } elseif ($city == 'Other') {
         $delivery = 100;
-    }
-    else{
+    } else {
         $errors['city'] = "<div class='alert alert-danger'> * Please Choose Your City </div>";
     }
 
@@ -129,8 +127,7 @@ if (isset($_POST['reciept'])) {
         $discounts = discount(array_sum($subtotal));
         $totalAfterDisc = totalAfterDisc(array_sum($subtotal));
         $netValue = netValue($totalAfterDisc, $delivery);
-    } 
-    else {
+    } else {
         $errormsg = "<div class='alert alert-danger'>Please Check Your input values</div>";
     }
 }
@@ -262,13 +259,13 @@ if (isset($_POST['reciept'])) {
                                         for ($i = 0; $i < $count; $i++) {
                                             if (isset($_POST["prod-name-" . $i]) && isset($_POST["price-" . $i]) && isset($_POST["quantity-" . $i])) {
                                                 $products[$i] = $_POST["prod-name-" . $i];
-                                                if(isset($products[$i]) && isset($quantity[$i]) && isset($subtotal[$i])){
-                                                echo "<tr><td class='products'>$products[$i]</td><td class='products'>$products[$i]</td>
+                                                if (isset($products[$i]) && isset($quantity[$i]) && isset($subtotal[$i])) {
+                                                    echo "<tr><td class='products'>$products[$i]</td><td class='products'>$products[$i]</td>
                                             <td class='products'>$quantity[$i]</td><td>$subtotal[$i]</td></tr>";
+                                                }
                                             }
                                         }
                                     }
-                                }
                                     ?>
 
                                 </tbody>
@@ -276,13 +273,13 @@ if (isset($_POST['reciept'])) {
 
                             <br>
                             <div class="input-error">
-                            <?php
-                            if (isset($errormsg)) {
-                                echo $errormsg;
-                            }
-                            ?>
+                                <?php
+                                if (isset($errormsg)) {
+                                    echo $errormsg;
+                                }
+                                ?>
                             </div>
-                            
+
 
                             <!-- bill info -->
 
