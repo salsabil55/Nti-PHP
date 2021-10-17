@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2021 at 01:21 AM
+-- Generation Time: Oct 17, 2021 at 07:42 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -290,7 +290,7 @@ CREATE TABLE `subcategories` (
   `name_en` varchar(1000) NOT NULL,
   `status` enum('0','1') NOT NULL DEFAULT '1' COMMENT '0=>not active & 1=> active',
   `image` varchar(50) NOT NULL DEFAULT 'default.jpg',
-  `category_id` bigint(20) NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -449,7 +449,8 @@ ALTER TABLE `specs`
 -- Indexes for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `categories_subcategories_fk` (`category_id`);
 
 --
 -- Indexes for table `users`
@@ -614,6 +615,12 @@ ALTER TABLE `regions`
 ALTER TABLE `reviews`
   ADD CONSTRAINT `products_review_fk` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `users_reviews_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `subcategories`
+--
+ALTER TABLE `subcategories`
+  ADD CONSTRAINT `categories_subcategories_fk` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `wishlists`
